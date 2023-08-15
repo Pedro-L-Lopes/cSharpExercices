@@ -1,13 +1,42 @@
 ﻿using _9_Array;
-using System.Globalization;
-
 namespace Course
 {
     class Program
     {
         static void Main(string[] args)
         {
+            Estudante[] vet = new Estudante[10];
+
+            Console.Write("Quantos quartos serão alugados? ");
             int n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Aluguel #{i}:");
+                Console.Write("Nome: ");
+                string nome = Console.ReadLine();
+                Console.Write("Email: ");
+                string email = Console.ReadLine();
+                Console.Write("Quarto: ");
+                int quarto = int.Parse(Console.ReadLine());
+                vet[quarto] = new Estudante(nome, email);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Quartos ocupados:");
+            for (int i = 0; i < 10; i++)
+            {
+                if (vet[i] != null)
+                {
+                    Console.WriteLine(i + ": " + vet[i]);
+                }
+            }
+        }
+    }
+}
+
+/* int n = int.Parse(Console.ReadLine());
 
             Product[] vet = new Product[n];
 
@@ -26,10 +55,7 @@ namespace Course
 
             double media = soma / n;
 
-            Console.WriteLine("Preço medio: " + media.ToString("F2", CultureInfo.InvariantCulture));
-        }
-    }
-}
+            Console.WriteLine("Preço medio: " + media.ToString("F2", CultureInfo.InvariantCulture));*/
 
 /*int n = int.Parse(Console.ReadLine());
 
