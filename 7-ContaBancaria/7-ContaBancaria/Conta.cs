@@ -16,7 +16,7 @@ namespace Course
 
         public Conta(string nome, int numeroConta, double saldo) : this(nome, numeroConta)
         {
-            Saldo = saldo;
+            AdicionarSaldo(saldo);
         }
 
         public string Nome

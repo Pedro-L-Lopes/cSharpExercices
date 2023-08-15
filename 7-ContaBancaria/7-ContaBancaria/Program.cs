@@ -33,9 +33,6 @@ namespace Course
             Console.WriteLine("Dados da conta");
             Console.WriteLine(conta);
 
-
-
-
             Console.WriteLine();
 
             Console.Write("Adicionar Saldo: R$");
@@ -49,8 +46,6 @@ namespace Course
             saldo = double.Parse(Console.ReadLine());
             conta.RemoverSaldo(saldo);
             Console.WriteLine(conta);
-
-
 
         }
     }
