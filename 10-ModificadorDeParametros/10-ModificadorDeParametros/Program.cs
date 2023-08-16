@@ -6,9 +6,19 @@ namespace Couse
     {
         static void Main(string[] args)
         {
-            int resultado = Calculadora.sum(1, 2, 3, 4, 5);
+            int a = 10;
+            int triple;
 
-            Console.WriteLine(resultado);
+            Calculadora.Triple(a, out triple);
+            Console.WriteLine(triple);
+
+            /*int a = 10;
+            Calculadora.Triple(ref a);
+            Console.WriteLine(a);*/
+
+            // int resultado = Calculadora.sum(1, 2, 3, 4, 5, 10, 15);
+            //Console.WriteLine(resultado);
+
         }
     }
 }
