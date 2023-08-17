@@ -1,11 +1,61 @@
-﻿namespace Listas
+﻿using System.Globalization;
+
+namespace Listas
 {
 
     class Program
     {
         static void Main(string[] args)
         {
-            List<string> list = new List<string>();
+
+            Console.WriteLine("Quantos funcionario serão regsitrados? ");
+            int n = int.Parse(Console.ReadLine());
+
+            List<Funcionario> list = new List<Funcionario>();
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine($"Funcionario {i}:");
+                Console.Write("Id: ");
+                int id = int.Parse(Console.ReadLine());
+                Console.Write("Nome: ");
+                string nome = Console.ReadLine();
+                Console.Write("Salario: ");
+                double salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                list.Add(new Funcionario(id, nome, salario));
+                Console.WriteLine();
+            }
+
+            Console.Write("Id do funcionario que tera um acrescimo no salario: ");
+            int procurandoId = int.Parse(Console.ReadLine());
+
+            Funcionario funcionario = list.Find(x => x.Id == procurandoId);
+
+            if (funcionario != null)
+            {
+                Console.Write("Porcentagem em que o salario será aumentado: ");
+                double porcentagem = double.Parse(Console.ReadLine());
+                funcionario.AumentarSalario(porcentagem);
+            }
+            else
+            {
+                Console.WriteLine("Id não encontrado!");
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("Lista atualizada de funcionarios: ");
+            foreach (Funcionario func in list)
+            {
+                Console.WriteLine(func);
+            }
+
+        }
+    }
+
+}
+
+/*List<string> list = new List<string>();
 
             list.Add("Crebão");
             list.Add("Zezin");
@@ -69,9 +119,4 @@
             foreach (string item in list)
             {
                 Console.WriteLine(item);
-            }
-
-        }
-    }
-
-}
+            }*/
