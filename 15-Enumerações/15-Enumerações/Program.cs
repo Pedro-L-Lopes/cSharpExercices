@@ -11,7 +11,7 @@ namespace Enumeracoes
             {
                 Id = 1080,
                 Moment = DateTime.Now,
-                Status = OrderStatus.Delivered
+                Status = OrderStatus.Processing
             };
 
             Console.WriteLine(order);
