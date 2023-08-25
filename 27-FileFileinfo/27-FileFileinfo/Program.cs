@@ -4,7 +4,29 @@
     {
         public static void Main(string[] args)
         {
-            string sourcePath = @"C:\Nova pasta/file1.txt";
+
+            string path = @"C:\Nova pasta/file1.txt";
+            StreamReader sr = null;
+            try
+            {
+                sr = File.OpenText(path);
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+                    Console.WriteLine(line);
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+            }
+            finally
+            {
+                sr?.Close();
+            }
+
+
+            /*string sourcePath = @"C:\Nova pasta/file1.txt";
             string targetPath = @"C:\Nova pasta/file2.txt";
 
             try
@@ -23,7 +45,7 @@
             catch (IOException e)
             {
                 Console.WriteLine("Error: " + e.Message);
-            }
+            }*/
         }
     }
 }
