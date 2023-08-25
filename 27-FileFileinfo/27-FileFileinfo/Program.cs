@@ -5,7 +5,27 @@
         public static void Main(string[] args)
         {
 
-            string path = @"C:\Nova pasta/file1.txt";
+            string sourcePath = @"C:\Nova pasta/file1.txt";
+            string targetPath = @"C:\Nova pasta/file2.txt";
+
+            try
+            {
+                String[] lines = File.ReadAllLines(sourcePath);
+
+                using (StreamWriter sw = File.AppendText(targetPath))
+                {
+                    foreach (string line in lines)
+                    {
+                        sw.WriteLine(line.ToUpper());
+                    }
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+            }
+
+            /*string path = @"C:\Nova pasta/file1.txt";
 
             try
             {
@@ -17,11 +37,11 @@
                         Console.WriteLine(line);
                     }
                 }
-            }
+            } 
             catch (IOException e)
             {
                 Console.WriteLine("Error: " + e.Message);
-            }
+            } */
 
             /*string path = @"C:\Nova pasta/file1.txt";
             StreamReader sr = null;
