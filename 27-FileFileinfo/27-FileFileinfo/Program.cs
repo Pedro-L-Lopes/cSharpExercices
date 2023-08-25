@@ -6,6 +6,24 @@
         {
 
             string path = @"C:\Nova pasta/file1.txt";
+
+            try
+            {
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        Console.WriteLine(line);
+                    }
+                }
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+            }
+
+            /*string path = @"C:\Nova pasta/file1.txt";
             StreamReader sr = null;
             try
             {
@@ -23,7 +41,7 @@
             finally
             {
                 sr?.Close();
-            }
+            }*/
 
 
             /*string sourcePath = @"C:\Nova pasta/file1.txt";
