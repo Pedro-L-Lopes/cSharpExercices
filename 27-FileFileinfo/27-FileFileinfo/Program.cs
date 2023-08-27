@@ -12,12 +12,10 @@
             {
                 String[] lines = File.ReadAllLines(sourcePath);
 
-                using (StreamWriter sw = File.AppendText(targetPath))
+                using StreamWriter sw = File.AppendText(targetPath);
+                foreach (string line in lines)
                 {
-                    foreach (string line in lines)
-                    {
-                        sw.WriteLine(line.ToUpper());
-                    }
+                    sw.WriteLine(line.ToUpper());
                 }
             }
             catch (IOException e)
