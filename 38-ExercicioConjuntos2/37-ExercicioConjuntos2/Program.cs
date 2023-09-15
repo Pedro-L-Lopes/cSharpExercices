@@ -36,9 +36,6 @@
             all.UnionWith(courseB);
             all.UnionWith(courseC);
             Console.WriteLine("Total students: " + all.Count);
-
-
-
         }
     }
 }
