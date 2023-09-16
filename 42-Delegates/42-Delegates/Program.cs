@@ -3,7 +3,7 @@
 namespace Course
 {
 
-    delegate double BinaryNumericOperation(double n1, double n2);
+    delegate void BinaryNumericOperation(double n1, double n2);
 
     class Program
     {
@@ -12,10 +12,10 @@ namespace Course
             double a = 10;
             double b = 5;
 
-            BinaryNumericOperation op = CalculationService.Max;
+            BinaryNumericOperation op = CalculationService.ShowSum;
+            op += CalculationService.ShowMax;
 
-            double result = op(a, b);
-            Console.WriteLine(result);
+            op.Invoke(a, b);
         }
     }
 }
